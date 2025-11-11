@@ -1,0 +1,81 @@
+2025-11-11 21:28:33,415 - INFO - Status: 201 | Body: {
+  "name": "Charlie",
+  "email": "charlie@example.com",
+  "id": 11
+}
+2025-11-11 21:28:34,156 - INFO - Status: 404 | Body: {}
+2025-11-11 21:28:34,677 - INFO - Status: 200 | Body: {
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipco
+2025-11-11 21:28:35,087 - INFO - Status: 200 | Body: {
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipco
+2025-11-11 21:28:35,510 - INFO - Status: 200 | Body: {
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipco
+2025-11-11 21:30:52,097 - INFO - Status: 201 | Body: {
+  "name": "Charlie",
+  "email": "charlie@example.com",
+  "id": 11
+}
+2025-11-11 21:30:52,528 - INFO - Status: 200 | Body: [
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "Sincere@april.biz",
+    "address": {
+      "street": "Kulas Light",
+      "suite": "Apt. 556",
+      "city": "Gwen
+2025-11-11 21:30:52,937 - INFO - Status: 200 | Body: {
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipco
+2025-11-11 21:30:53,370 - INFO - Status: 200 | Body: {
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipco
+2025-11-11 21:30:53,773 - INFO - Status: 200 | Body: {
+  "id": 1,
+  "name": "Leanne Graham",
+  "username": "Bret",
+  "email": "Sincere@april.biz",
+  "address": {
+    "street": "Kulas Light",
+    "suite": "Apt. 556",
+    "city": "Gwenborough",
+    "zipco

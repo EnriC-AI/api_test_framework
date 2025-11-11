@@ -1,0 +1,10 @@
+# 🇮🇹 Configurazione ambiente di sviluppo
+# 🇬🇧 Development environment configuration
+
+#base_url: "https://api.dev.example.com"
+#auth_token: "dev-token-123"
+#timeout: 5
+
+
+base_url: "https://jsonplaceholder.typicode.com"
+timeout: 5

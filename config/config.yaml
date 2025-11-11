@@ -1,0 +1,15 @@
+# 🇮🇹 Configurazione principale che punta ai file di ambiente
+# 🇬🇧 Main configuration that references environment files
+
+#default: dev
+#
+#environments:
+#  dev: config/env/dev.yaml
+#  stage: config/env/stage.yaml
+#  prod: config/env/prod.yaml
+
+
+default: dev
+
+environments:
+  dev: config/dev.yaml
