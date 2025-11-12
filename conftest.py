@@ -1,72 +1,34 @@
-from pathlib import Path
-import yaml
-import json
 import pytest
+import yaml
+from pathlib import Path
+from core.logs.logger import get_logger
 from core.api_client import APIClient
-
-
 
 @pytest.fixture(scope="session")
 def config():
     """
-    🇮🇹 Carica i file di configurazione usando percorsi assoluti.
-    🇬🇧 Load configuration files using absolute paths.
+    🇮🇹 Carica i file di configurazione YAML.
+    🇬🇧 Load YAML configuration files.
     """
     base_path = Path(__file__).resolve().parent
-
-    # Se conftest è in tests/, risali di 1 livello
-    if (base_path / "config").exists() is False:
-        base_path = base_path.parent
-
     with open(base_path / "config/config.yaml") as f:
-        main_conf = yaml.safe_load(f)
-
-    env_name = main_conf["default"]
-    env_path = base_path / main_conf["environments"][env_name]
-
-    with open(env_path) as f:
-        env_conf = yaml.safe_load(f)
-
-    return env_conf
-
+        return yaml.safe_load(f)
 
 @pytest.fixture(scope="session")
-def api_client(config):
+def logger():
     """
-    🇮🇹 Istanzia l'API client con i parametri caricati da config.
-    🇬🇧 Instantiate the API client using config parameters.
+    🇮🇹 Fornisce un logger globale ai test.
+    🇬🇧 Provide a global logger to all tests.
     """
-    return APIClient(
-        base_url=config["base_url"],
-        timeout=config.get("timeout", 5)
-    )
-
+    return get_logger()
 
 @pytest.fixture(scope="session")
-def user_schema():
+def api_client(config, logger):
     """
-    🇮🇹 Carica lo schema JSON degli utenti.
-    🇬🇧 Load user JSON schema.
+    🇮🇹 Crea un'istanza di APIClient condivisa.
+    🇬🇧 Create a shared instance of APIClient.
     """
-    base_path = Path(__file__).resolve().parent.parent
-    schema_path = base_path / "tests/schemas/user_schema.json"
-
-    with open(schema_path) as f:
-        return json.load(f)
-
-# @pytest.fixture(scope="session")
-# def config():
-#     """
-#     🇮🇹 Carica config.yaml in modo affidabile indipendentemente dalla posizione di esecuzione.
-#     🇬🇧 Load config.yaml in a reliable way regardless of execution location.
-#     """
-#     base_path = Path(__file__).resolve().parent.parent
-#
-#     config_path = base_path / "config" / "config.yaml"
-#
-#     if not config_path.exists():
-#         raise FileNotFoundError(f"Config file not found at: {config_path}")
-#
-#     with open(config_path, "r") as f:
-#         return yaml.safe_load(f)
-
+    base_url = config["base_url"]
+    client = APIClient(base_url)
+    logger.info(f"API Client initialized with base URL: {base_url}")
+    return client

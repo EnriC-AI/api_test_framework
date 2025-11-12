@@ -1,15 +1,20 @@
-# 🇮🇹 Configurazione principale che punta ai file di ambiente
-# 🇬🇧 Main configuration that references environment files
+# 🇮🇹 Configurazione di base per l'ambiente di test
+# 🇬🇧 Basic configuration for the test environment
 
-#default: dev
-#
-#environments:
-#  dev: config/env/dev.yaml
-#  stage: config/env/stage.yaml
-#  prod: config/env/prod.yaml
+environment: dev
+
+base_url: "https://reqres.in/api"   # API pubblica demo (puoi cambiarla)
+#timeout: 10
+
+# 🇮🇹 Credenziali o chiavi API (se necessarie)
+# 🇬🇧 Credentials or API keys (if needed)
+headers:
+  Content-Type: "application/json"
+timeout: 5
+# 🇮🇹 Parametri per logging e report
+# 🇬🇧 Logging and report parameters
+report:
+  html: "reports/report.html"
+  allure: "reports/allure-results"
 
 
-default: dev
-
-environments:
-  dev: config/dev.yaml

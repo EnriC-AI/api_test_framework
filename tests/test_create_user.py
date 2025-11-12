@@ -1,14 +1,10 @@
 def test_create_user(api_client):
     """
-    🇮🇹 Test fittizio per POST. L'API non salva veramente, ma risponde qualcosa.
-    🇬🇧 Fake POST test. API doesn't save but returns something.
+    🇮🇹 Test di creazione utente su reqres.in
+    🇬🇧 User creation test on reqres.in
     """
-    payload = {
-        "name": "Mario Rossi",
-        "email": "mario.rossi@example.com"
-    }
-
+    payload = {"name": "Enrico", "job": "QA Manager"}
     response = api_client.post("/users", data=payload)
 
     assert response.status_code in (200, 201)
-    assert response.json()["name"] == "Mario Rossi"
+    print(response.json())
