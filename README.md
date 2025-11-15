@@ -144,7 +144,6 @@ jobs:
 ## 📚 Documentation
 📄 Project Usage Guide (PDF)
 📄 Technical Architecture & Decisions (PDF)
-📄 Deep Dive "WOW Level" Interview Document (PDF)
 
 ---
 
@@ -160,6 +159,6 @@ jobs:
 ---
 
 ## 👤 Author
-Created by **[Your Name]** – QA Automation Engineer / QA Lead profile
+Created by Enrico Caruso – QA Automation Engineer / QA Lead profile
 
 📩 Feel free to connect and discuss test architecture, leadership, or automation strategy.
