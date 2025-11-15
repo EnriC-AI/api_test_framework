@@ -145,8 +145,7 @@ jobs:
 
 ---
 
-## 🏅 Badges (Example)
-> Replace these with real badges once CI/CD is enabled
+## 🏅 Badges
 
 ```
 ![Build Status](https://dummyimage.com/100x20/000/fff&text=CI)
