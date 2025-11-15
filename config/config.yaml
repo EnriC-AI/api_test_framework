@@ -1,20 +1,12 @@
-# 🇮🇹 Configurazione di base per l'ambiente di test
-# 🇬🇧 Basic configuration for the test environment
+default_env: dev
 
-environment: dev
-
-base_url: "https://reqres.in/api"   # API pubblica demo (puoi cambiarla)
-#timeout: 10
-
-# 🇮🇹 Credenziali o chiavi API (se necessarie)
-# 🇬🇧 Credentials or API keys (if needed)
-headers:
-  Content-Type: "application/json"
-timeout: 5
-# 🇮🇹 Parametri per logging e report
-# 🇬🇧 Logging and report parameters
-report:
-  html: "reports/report.html"
-  allure: "reports/allure-results"
-
-
+environments:
+  dev:
+    base_url: "https://reqres.in/api"
+    api_key: "dev-key"
+  stage:
+    base_url: "https://staging.reqres.in/api"
+    api_key: "stage-key"
+  prod:
+    base_url: "https://api.reqres.in"
+    api_key: "prod-key"

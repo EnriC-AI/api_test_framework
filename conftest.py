@@ -7,12 +7,16 @@ from core.api_client import APIClient
 @pytest.fixture(scope="session")
 def config():
     """
-    🇮🇹 Carica i file di configurazione YAML.
-    🇬🇧 Load YAML configuration files.
+    🇮🇹 Carica la configurazione in base all'ambiente selezionato.
+    🇬🇧 Load configuration depending on selected environment.
     """
     base_path = Path(__file__).resolve().parent
     with open(base_path / "config/config.yaml") as f:
-        return yaml.safe_load(f)
+        full_config = yaml.safe_load(f)
+
+    env = full_config.get("default_env", "dev")
+    return full_config["environments"][env]
+
 
 @pytest.fixture(scope="session")
 def logger():

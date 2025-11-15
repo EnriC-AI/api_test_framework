@@ -1,8 +1,7 @@
 def test_smoke(api_client):
     """
-    🇮🇹 Verifica base che il framework sia configurato correttamente.
-    🇬🇧 Basic check to ensure the framework is correctly configured.
+    🇮🇹 Smoke test rapido per confermare che l'API risponda.
+    🇬🇧 Quick smoke test to confirm API availability.
     """
-    response = api_client.get("/users/1")
+    response = api_client.get("/users")
     assert response.status_code == 200
-    assert "name" in response.json()

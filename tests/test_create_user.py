@@ -1,10 +1,14 @@
-def test_create_user(api_client):
-    """
-    🇮🇹 Test di creazione utente su reqres.in
-    🇬🇧 User creation test on reqres.in
-    """
-    payload = {"name": "Enrico", "job": "QA Manager"}
-    response = api_client.post("/users", data=payload)
+import pytest
+import yaml
+from pathlib import Path
 
-    assert response.status_code in (200, 201)
-    print(response.json())
+@pytest.mark.parametrize("data", yaml.safe_load(open(Path(__file__).resolve().parent / "testdata" / "create_user_data.yaml")))
+def test_create_user(api_client, data, logger):
+    """
+    🇮🇹 Esegue test di creazione utente con dati presi da file esterno YAML.
+    🇬🇧 Executes user creation tests using data loaded from external YAML file.
+    """
+    logger.info(f"Creating user: {data['name']}")
+    response = api_client.post("/users", json=data)
+    assert response.status_code == 201
+    logger.info(f"User created: {response.json()}")

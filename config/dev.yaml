@@ -1,10 +1,31 @@
+# ==========================================================
 # 🇮🇹 Configurazione ambiente di sviluppo
 # 🇬🇧 Development environment configuration
+# ==========================================================
 
-#base_url: "https://api.dev.example.com"
-#auth_token: "dev-token-123"
-#timeout: 5
+# 🌍 Base URL dell'ambiente di test pubblico
+# 🌍 Base URL of the public test environment
+base_url: "https://reqres.in/api"
 
+# 🧱 Intestazioni HTTP di default
+# 🧱 Default HTTP headers
+headers:
+  Content-Type: "application/json"
+  Accept: "application/json"
 
-base_url: "https://jsonplaceholder.typicode.com"
-timeout: 5
+# ⏱ Timeout massimo (in secondi)
+# ⏱ Maximum timeout (in seconds)
+timeout: 10
+
+# 🧪 Opzioni specifiche per i test (facoltative)
+# 🧪 Optional test-specific settings
+test_settings:
+  create_user_endpoint: "/users"
+  get_users_endpoint: "/users"
+  healthcheck_endpoint: "/users?page=1"
+
+# 📦 Logging configuration
+# 📦 Configurazione logging
+logging:
+  level: "INFO"
+  file: "logs/test_run.log"
