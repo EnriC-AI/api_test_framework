@@ -142,8 +142,6 @@ jobs:
 ---
 
 ## 📚 Documentation
-📄 Project Usage Guide (PDF)
-📄 Technical Architecture & Decisions (PDF)
 
 ---
 
