@@ -16,7 +16,7 @@
 - [Key Features](#-key-features)
 - [Folder Structure](#-folder-structure)
 - [Configuration](#-configuration)
-- [Installation](#️-installation)
+- [Installation](#️-installation) 
 - [Running Tests](#-running-tests)
 - [Test Types](#-test-types)
 - [Mock vs Live Mode](#-mock-vs-live-mode)
