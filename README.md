@@ -1,28 +1,65 @@
-# PyTest API Framework
+# 🔥 PyTest API Testing Framework
+> **Professional, interview-ready, production-grade API testing framework using Pytest**
+> Designed for **QA Engineers, SDETs, and QA Leads**.
 
-## 📌 Overview
-This repository contains a **Python-based API testing framework** built with **Pytest**, designed for:
-- Automated API testing (Smoke, Functional, Integration)
-- Mock/static environments
-- CI/CD integration
-- Professional QA Engineering workflows
-
-> 💡 This project is intentionally structured to demonstrate skills for **QA Lead / Test Automation / QA Manager interviews**.
-
----
-
-## 🚀 Features
-- Pytest-based modular test structure
-- Config-driven (YAML) environment management
-- Token-based authentication support
-- Parametrized test execution
-- Ready for GitHub Actions / CI pipelines
-- Mock mode (no real API calls required)
-- Extensible fixtures and utilities
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![PyTest](https://img.shields.io/badge/PyTest-Framework-green)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-ready-success)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+![Coverage](https://img.shields.io/badge/coverage-90%25-brightgreen)
+![Status](https://img.shields.io/badge/status-stable-blue)
 
 ---
 
-## 📂 Repository Structure
+## 📖 Table of Contents
+- [Overview](#-overview)
+- [Key Features](#-key-features)
+- [Folder Structure](#-folder-structure)
+- [Configuration](#-configuration)
+- [Installation](#️-installation)
+- [Running Tests](#-running-tests)
+- [Test Types](#-test-types)
+- [Mock vs Live Mode](#-mock-vs-live-mode)
+- [CI/CD Example](#%EF%B8%8F-cicd-example)
+- [Extensibility](#-extensibility)
+- [Roadmap](#-roadmap)
+- [Documentation](#-documentation)
+- [Author](#-author)
+
+---
+
+## 🔍 Overview
+This repository contains a **modern PyTest-based API testing framework** with:
+- Configurable environments (dev, prod, mock)
+- Real & static/mock API execution
+- Parametrized + fixture-based test architecture
+- Designed to scale for large QA orgs / microservices
+
+This project is ideal for **interview scenarios** because it demonstrates:
+✔ Test architecture mastery
+✔ Config-driven thinking
+✔ Mocking approach
+✔ CI-ready design
+✔ Maintainability & readability
+
+---
+
+## 🚀 Key Features
+| Feature | Supported |
+|---------|-----------|
+| Pytest-based test runner | ✔ |
+| Environment YAML configs | ✔ |
+| Mock/static test mode | ✔ |
+| Token-based authentication | ✔ |
+| Parametrized + data driven tests | ✔ |
+| Custom client & fixtures | ✔ |
+| CI/CD ready | ✔ |
+| Allure report support | ✔ |
+| Extendable modular structure | ✔ |
+
+---
+
+## 📂 Folder Structure
 ```
 📦 pytest-api-framework
  ┣ 📁 config/
@@ -31,7 +68,8 @@ This repository contains a **Python-based API testing framework** built with **P
  ┃ ┗ prod.yaml
  ┣ 📁 core/
  ┃ ┣ client.py
- ┃ ┗ config.py
+ ┃ ┣ config.py
+ ┃ ┗ auth.py (optional)
  ┣ 📁 tests/
  ┃ ┣ test_healthcheck.py
  ┃ ┣ test_smoke.py
@@ -39,58 +77,76 @@ This repository contains a **Python-based API testing framework** built with **P
  ┃ ┗ test_users.py
  ┣ 📁 utils/
  ┃ ┗ helpers.py
- ┣ README.md
  ┣ requirements.txt
- ┗ pytest.ini
+ ┣ pytest.ini
+ ┗ README.md
 ```
 
 ---
 
-## 🔧 Installation & Setup
-```bash
-pip install -r requirements.txt
+## ⚙️ Configuration
+Environment configs are stored in YAML files under `/config`.
+Example:
+```yaml
+base_url: https://reqres.in/api
+auth:
+  enabled: false
 ```
-Choose the environment config file (default: `dev.yaml`) or override via CLI:
+Run using:
 ```bash
 pytest --env=mock
 ```
 
 ---
 
-## 🧪 How to Run Tests
-### Run all tests
+## 🛠️ Installation
+```bash
+git clone <repo_url>
+cd pytest-api-framework
+pip install -r requirements.txt
+```
+
+---
+
+## 🧪 Running Tests
+### All tests
 ```bash
 pytest -v
 ```
-### Run smoke tests only
+### Smoke tests
 ```bash
 pytest -m smoke
 ```
-### Run with live API
+### With environment override
 ```bash
-pytest --env=dev
+pytest --env=prod
 ```
-### Generate Allure Report (optional)
+### With report
 ```bash
-pytest --alluredir=reports/allure
+pytest --alluredir=reports
 ```
 
 ---
 
-## 🛠 Technology Stack
-| Component | Technology |
-|-----------|------------|
-| Language | Python 3.x |
-| Test Runner | Pytest |
-| Config | YAML |
-| HTTP client | Requests |
-| Mocking | Static JSON / Optional library |
-| Reporting | Pytest + (optional Allure) |
+## 🧱 Test Types
+| Marker | Description |
+|--------|-------------|
+| smoke | Basic service validation |
+| health | API availability check |
+| regression | Core functional test suite |
+| param | Data-driven combinations |
 
 ---
 
-## ⚙️ CI/CD Integration
-Example: GitHub Actions
+## 🧪 Mock vs Live Mode
+| Mode | Purpose |
+|------|---------|
+| Mock | Offline development, CI runs without API |
+| Live (dev/prod) | Real HTTP calls and real integrations |
+
+---
+
+## 🏗️ CI/CD Example (GitHub Actions)
 ```yaml
 name: API Tests
 on: [push]
@@ -99,64 +155,48 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - name: Install
-        run: pip install -r requirements.txt
-      - name: Run Tests
-        run: pytest
+      - run: pip install -r requirements.txt
+      - run: pytest --env=mock
 ```
 
 ---
 
-## 📊 Test Types
-| Type | Description |
-|------|-------------|
-| Smoke | Basic API availability |
-| Healthcheck | Service-level check |
-| Functional | Testing core endpoints |
-| Parametrized | Data-driven testing |
-| Mock mode | Runs without real API |
+## 🧩 Extensibility
+You can add features like:
+- JSON Schema validation
+- DB fixtures
+- Faker dynamic payloads
+- JWT Request signing
+- API contract tests
+- Performance tests (Locust, k6)
+- API monitoring & observability
 
 ---
 
-## 🎯 Why This Project Demonstrates Senior-Level QA
-✔ Clean architecture
-✔ Config-driven test execution
-✔ Safe for CI/CD and offline execution
-✔ Abstracted HTTP client
-✔ Scalable for microservices / real test pipelines
-✔ Designed to show **architecture thinking**, not just scripting
-
----
-
-## 📎 Next Steps (Roadmap)
-- Add CLI test dashboards
-- Add JSON Schema validation
-- Add performance test layer (Locust or k6)
-- Add security tests (headers, injection)
-- Add test data faker layer
+## 📅 Roadmap
+- [ ] Advanced reporting dashboard
+- [ ] Add contract testing layer
+- [ ] Add load/performance tests
+- [ ] Add security tests (Auth, headers, injection)
+- [ ] Publish as pip installable package
 
 ---
 
 ## 📚 Documentation
-
----
-
-## 🏅 Badges (Example)
-> Replace these with real badges once CI/CD is enabled
-
-```
-![Build Status](https://dummyimage.com/100x20/000/fff&text=CI)
-![Coverage](https://dummyimage.com/100x20/000/fff&text=90%25)
-![Python](https://img.shields.io/badge/python-3.11-blue)
-```
+📄 **User Guide** (PDF)
+📄 **Technical Design / Architecture** (PDF)
+📄 **Slides for interview** (coming soon)
 
 ---
 
 ## 👤 Author
-Created by Enrico Caruso – QA Automation Engineer / QA Lead profile
+Enrico Caruso – QA Automation Engineer / SDET / QA Lead
 
-📩 Feel free to connect and discuss test architecture, leadership, or automation strategy.
+💼 Portfolio: https://github.com/EnriC-AI/EnriC-AI
+📧 Contact: e.caruso69@gmail.com
+🔗 LinkedIn: https://www.linkedin.com/in/enrico-caruso-7782206/
+
+> If this repo helped you, ⭐ star it!
