@@ -141,6 +141,11 @@ pytest -m contract -v
 locust -f performance/locustfile.py --host=https://reqres.in
 ```
 
+### Performance tests (k6)
+```bash
+k6 run performance/k6_users.js
+```
+
 ### Docker execution
 ```bash
 docker build -t pytest-api-framework .
@@ -156,6 +161,7 @@ docker run --rm pytest-api-framework
 | health | API availability check |
 | regression | Core functional test suite |
 | param | Data-driven combinations |
+| contract | OpenAPI/Swagger schema checks |
 
 ---
 
@@ -200,7 +206,7 @@ You can add features like:
 ## 📅 Roadmap
 - [ ] Advanced reporting dashboard
 - [x] Add contract testing layer
-- [x] Add load/performance tests
+- [x] Add load/performance tests (Locust + k6)
 - [ ] Add security tests (Auth, headers, injection)
 - [ ] Publish as pip installable package
 
