@@ -191,6 +191,23 @@ jobs:
 
 ---
 
+## 🏗️ CI/CD Pipeline (Phase 7 — DevOps)
+A production-style GitHub Actions pipeline is included in: `/.github/workflows/ci.yml`
+
+### What it does
+- Triggers on `push`, `pull_request`, and manual dispatch
+- Runs tests on Python `3.10` and `3.11` (matrix strategy)
+- Installs dependencies from `requirements.txt`
+- Executes full test suite in mock mode
+- Publishes JUnit XML reports as workflow artifacts
+
+### Local parity command
+```bash
+pytest -v --env=mock
+```
+
+---
+
 ## 🧩 Extensibility
 You can add features like:
 - JSON Schema validation
