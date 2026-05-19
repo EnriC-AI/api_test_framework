@@ -1,6 +1,9 @@
 default_env: dev
 
 environments:
+  mock:
+    base_url: "https://reqres.in/api"
+    api_key: "mock-key"
   dev:
     base_url: "https://reqres.in/api"
     api_key: "dev-key"
