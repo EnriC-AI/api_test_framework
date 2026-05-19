@@ -230,9 +230,9 @@ You can add features like:
 ---
 
 ## 📚 Documentation
-📄 **User Guide** (PDF)
-📄 **Technical Design / Architecture** (PDF)
-📄 **Slides for interview** (coming soon)
+- 📘 **Manuale Utente dettagliato (IT):** `MANUALE_UTENTE.md`
+- 📄 **Technical Design / Architecture:** in evoluzione
+- 📄 **Slides for interview:** coming soon
 
 ---
 
