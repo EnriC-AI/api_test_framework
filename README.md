@@ -126,6 +126,27 @@ pytest --env=prod
 pytest --alluredir=reports
 ```
 
+### Parallel execution (xdist)
+```bash
+pytest -n auto
+```
+
+### Contract tests
+```bash
+pytest -m contract -v
+```
+
+### Performance tests (Locust)
+```bash
+locust -f performance/locustfile.py --host=https://reqres.in
+```
+
+### Docker execution
+```bash
+docker build -t pytest-api-framework .
+docker run --rm pytest-api-framework
+```
+
 ---
 
 ## 🧱 Test Types
@@ -178,8 +199,8 @@ You can add features like:
 
 ## 📅 Roadmap
 - [ ] Advanced reporting dashboard
-- [ ] Add contract testing layer
-- [ ] Add load/performance tests
+- [x] Add contract testing layer
+- [x] Add load/performance tests
 - [ ] Add security tests (Auth, headers, injection)
 - [ ] Publish as pip installable package
 
