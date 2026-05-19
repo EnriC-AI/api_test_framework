@@ -64,7 +64,13 @@ class APIClient:
         🇮🇹 Esegue una richiesta POST con payload JSON.
         🇬🇧 Execute a POST request with JSON payload.
         """
-        return self._request("POST", endpoint, json=data, **kwargs)
+        if data is not None and "json" in kwargs:
+            raise ValueError("Pass either 'data' or 'json', not both.")
+
+        if data is not None:
+            kwargs["json"] = data
+
+        return self._request("POST", endpoint, **kwargs)
 
     def _request(self, method, endpoint, **kwargs):
         url = f"{self.base_url}{endpoint}"

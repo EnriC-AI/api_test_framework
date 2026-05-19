@@ -56,6 +56,16 @@ def api_client(config, logger):
     🇬🇧 Create a shared instance of APIClient.
     """
     base_url = config["base_url"]
-    client = APIClient(base_url)
+    headers = {"Content-Type": "application/json", "x-api-key": config.get("api_key", "")}
+    client = APIClient(base_url, headers=headers)
     logger.info(f"API Client initialized with base URL: {base_url}")
     return client
+
+
+@pytest.fixture(scope="session")
+def user_schema():
+    """
+    🇮🇹 Espone il path dello schema utente ai test.
+    🇬🇧 Expose user schema path to tests.
+    """
+    return Path(__file__).resolve().parent / "tests" / "schemas" / "user_schema.json"
