@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.0",
+  "info": {"title": "ReqRes API Contract (excerpt)", "version": "1.0.0"},
+  "paths": {"/users/{id}": {"get": {"responses": {"200": {"description": "Single user"}}}}},
+  "components": {
+    "schemas": {
+      "Support": {
+        "type": "object",
+        "properties": {"url": {"type": "string"}, "text": {"type": "string"}},
+        "required": ["url", "text"]
+      },
+      "UserData": {
+        "type": "object",
+        "properties": {
+          "id": {"type": "integer"},
+          "email": {"type": "string", "format": "email"},
+          "first_name": {"type": "string"},
+          "last_name": {"type": "string"},
+          "avatar": {"type": "string"}
+        },
+        "required": ["id", "email", "first_name", "last_name", "avatar"]
+      },
+      "GetSingleUserResponse": {
+        "type": "object",
+        "properties": {
+          "data": {"$ref": "#/components/schemas/UserData"},
+          "support": {"$ref": "#/components/schemas/Support"}
+        },
+        "required": ["data", "support"]
+      }
+    }
+  }
+}
