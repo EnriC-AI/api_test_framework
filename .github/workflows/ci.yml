@@ -35,6 +35,8 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run tests in mock mode
+        env:
+          REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
         run: pytest -v --env=mock --junitxml=reports/junit-${{ matrix.python-version }}.xml
 
       - name: Upload JUnit report

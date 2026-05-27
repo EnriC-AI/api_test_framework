@@ -1,3 +1,4 @@
+import os
 import pytest
 import yaml
 from pathlib import Path
@@ -56,7 +57,11 @@ def api_client(config, logger):
     🇬🇧 Create a shared instance of APIClient.
     """
     base_url = config["base_url"]
-    headers = {"Content-Type": "application/json", "x-api-key": config.get("api_key", "")}
+    api_key = os.getenv("REQRES_API_KEY") or config.get("api_key", "")
+    headers = {"Content-Type": "application/json"}
+    if api_key:
+        headers["x-api-key"] = api_key
+
     client = APIClient(base_url, headers=headers)
     logger.info(f"API Client initialized with base URL: {base_url}")
     return client

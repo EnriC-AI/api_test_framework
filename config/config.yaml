@@ -3,13 +3,13 @@ default_env: dev
 environments:
   mock:
     base_url: "https://reqres.in/api"
-    api_key: "mock-key"
+    api_key: ""
   dev:
     base_url: "https://reqres.in/api"
-    api_key: "dev-key"
+    api_key: ""
   stage:
     base_url: "https://staging.reqres.in/api"
-    api_key: "stage-key"
+    api_key: ""
   prod:
     base_url: "https://api.reqres.in"
-    api_key: "prod-key"
+    api_key: ""
